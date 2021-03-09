@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<link rel="shortcut icon" href="{{ url_for('static', filename='piano_favicon.png') }}">
+
+<body>
+
+    <video controls autoplay>
+        <source src={{ url_for('static', filename="thousand_miles_short.mp4" ) }} type="video/mp4">
+    </video>
+
+    <div>
+        You are in {{ city }}
+    </div>
+</body>
+
+</html>

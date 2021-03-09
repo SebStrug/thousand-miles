@@ -1,0 +1,8 @@
+flask
+requests
+
+black
+flake8
+pylint
+mypy
+ipython
