@@ -1,9 +1,3 @@
 flask
 requests
-
-black
-flake8
-pylint
-mypy
-ipython
-autopep8
+pandas

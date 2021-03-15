@@ -1,0 +1,7 @@
+# libraries helpful for development, not required in prod
+black
+flake8
+pylint
+mypy
+ipython
+autopep8
