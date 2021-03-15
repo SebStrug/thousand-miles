@@ -1,4 +1,5 @@
-flask
-requests
-pandas
-geopy
+flask~=1.1
+requests~=2.25
+pandas~=1.2
+geopy~=2.1
+gunicorn~=20.0
