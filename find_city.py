@@ -20,9 +20,10 @@ def find_my_city(my_lat: float, my_long: float) -> str:
     return a random one
     """
 
-    # This is v. slow!
     data = read_csv()
-    data['distance_miles'] = data.apply(lambda x: distance.distance(
+    # geopy uses geodesic by default which is too slow for our needs,
+    # great-circle is 20x faster, a little less accurate
+    data['distance_miles'] = data.apply(lambda x: distance.great_circle(
         (my_lat, my_long), (x['lat'], x['lng'])).miles, axis=1)
 
     # Find 3 closest to a certain value in a column
