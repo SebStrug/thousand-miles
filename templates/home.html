@@ -2,35 +2,48 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='piano_favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+
+    <!-- Noto-serif font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+        $(function () {
+
+            var $firstScreen = $("#first-screen"),
+                $secondScreen = $("#second-content");
+
+            $firstScreen.on("click", function () {
+                $(this).addClass("clicked");
+            })
+        });
+    </script>
 </head>
 
-<link rel="shortcut icon" href="{{ url_for('static', filename='piano_favicon.png') }}">
 
 <body>
-    <div id="landing-content">
-        <div class="content">
-            If you were Vanessa Carlton, where would you go?
+    <div id='first-screen'>
+        <div class="content center">
+            <h1>Picture this, you're Vanessa Carlton on a piano, and your lover is a thousand miles away</h1>
+            <button id="videoButton" onclick="myFunction()">Yes I'm Vanessa Carlton</button>
         </div>
     </div>
 
-
-    <video autoplay controls loop id="thousandMilesVideo">
-        <source src={{ url_for('static', filename="thousand_miles_short.mp4" ) }} type="video/mp4">
-    </video>
-
-    <div id="actual-content">
-        <div class="content">
+    <div id="second-screen" style="display:none">
+        <div class="center">
+            <video autoplay controls loop id="thousandMilesVideo">
+                <source src={{ url_for('static', filename="thousand_miles_short.mp4" ) }} type="video/mp4">
+            </video>
             You are in {{ your_city }}
             <br>
             Your lover is in {{ lover_city }}
             <br>
             Go get 'em tiger
-            <button id="videoButton" onclick="myFunction()">Play</button>
         </div>
     </div>
 </body>
-
 
 <script>
     // Get the video
@@ -39,27 +52,22 @@
     // Get the button
     var btn = document.getElementById("videoButton");
 
+    var secondScreen = document.getElementById("second-screen")
+
     // Pause and play the video, and change the button text
     function myFunction() {
+        secondScreen.style.display = "block";
         if (video.paused) {
             video.play();
-            btn.innerHTML = "Pause";
+            btn.innerHTML = "No I'm not Vanessa Carlton";
         } else {
             video.pause();
-            btn.innerHTML = "Play";
+            btn.innerHTML = "I'm Vanessa Carlton";
         }
     }
-
-    $(function () {
-
-        var $landingContent = $("#landing-content"),
-            $actualContent = $("#actual-content");
-
-        $landingContent.on("click", function () {
-
-            $(this).addClass("clicked");
-        })
-    });
 </script>
+
+
+
 
 </html>
