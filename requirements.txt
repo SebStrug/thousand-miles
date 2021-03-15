@@ -6,3 +6,4 @@ flake8
 pylint
 mypy
 ipython
+autopep8
