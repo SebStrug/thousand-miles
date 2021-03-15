@@ -1,5 +1,5 @@
 from functools import lru_cache
-from random import random
+from random import choice
 
 import pandas as pd
 from geopy import distance
@@ -33,4 +33,4 @@ def find_my_city(my_lat: float, my_long: float) -> str:
 
     top_cities['pretty_name'] = top_cities['city'] + \
         ' in ' + top_cities['country']
-    return random.choice(top_cities['pretty_name'].tolist())
+    return choice(top_cities['pretty_name'].tolist())
