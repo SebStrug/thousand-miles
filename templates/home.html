@@ -27,7 +27,9 @@
     <div id='first-screen'>
         <div class="content center">
             <h1>Picture this, you're Vanessa Carlton on a piano, and your lover is a thousand miles away</h1>
-            <button id="videoButton" onclick="myFunction()">Yes I'm Vanessa Carlton</button>
+        </div>
+        <div class="below-center">
+            <button id="videoButton" onclick="myFunction()">Yes, I'm Vanessa Carlton</button>
         </div>
     </div>
 
@@ -36,12 +38,14 @@
             <video autoplay controls loop id="thousandMilesVideo">
                 <source src={{ url_for('static', filename="thousand_miles_short.mp4" ) }} type="video/mp4">
             </video>
-            You are in {{ your_city }}
+            You're in {{ your_city }}
             <br>
             Your lover is in {{ lover_city }}
             <br>
             Go get 'em tiger
+
         </div>
+
     </div>
 </body>
 
